@@ -11,6 +11,7 @@ function getCompChoice(){
 
 function playRound(playerSelection, compSelection){
 
+
     if (playerSelection === compSelection) {
         return ('You tied! Try again')
     }
@@ -36,37 +37,64 @@ function playRound(playerSelection, compSelection){
 // console.log(playRound('rock', compSelection))
 
 
-function game() {
-    for (let round = 1; round <=5; round++){
-    const playerSelection = prompt('choose rock, paper, or scissors').toLowerCase()
-    const compSelection = getCompChoice()
+// function game() {
+//     for (let round = 1; round <=5; round++){
+//     const playerSelection = prompt('choose rock, paper, or scissors').toLowerCase()
+//     const compSelection = getCompChoice()
     
     
-    console.log(` round ${round}: `)
-    console.log(` You chose ${playerSelection}: `)
-    console.log(` Computer chose ${compSelection}`)
-    let result = playRound(playerSelection, compSelection);
-    console.log(result);
+//     console.log(` round ${round}: `)
+//     console.log(` You chose ${playerSelection}: `)
+//     console.log(` Computer chose ${compSelection}`)
+//     let result = playRound(playerSelection, compSelection);
+//     console.log(result);
 
-    if (result.includes("win")){
-        playerScore ++
-    }
-    else if (result.includes("lose")){
-        compScore ++
-    }
-    console.log(`Your score is: ${playerScore} and the Computer score is: ${compScore}`)
-}
+//     if (result.includes("win")){
+//         playerScore ++
+//     }
+//     else if (result.includes("lose")){
+//         compScore ++
+//     }
+//     console.log(`Your score is: ${playerScore} and the Computer score is: ${compScore}`)
+// }
   
     
-}
+// }
 
-if (playerScore > compScore) {
-    console.log("Congrats, you win!")
-}
-else if (compScore > playerScore){
-    console.log("Sorry, you lose!")
-}
+// if (playerScore > compScore) {
+//     console.log("Congrats, you win!")
+// }
+// else if (compScore > playerScore){
+//     console.log("Sorry, you lose!")
+// }
 
 
-game()
+// game()
+
+// reference body of html node 
+
+const btns = document.querySelectorAll('button');
+const div = document.createElement('div');
+
+// const button1 = document.querySelector('#btn1');
+// const button2 = document.querySelector('#btn2');
+// const button3 = document.querySelector('#btn3');
+
+// console.log(button1.value)
+
+btns.forEach((button) => {
+    
+    button.addEventListener('click', () => {
+        const playerSelection = event.target.value;
+        const compSelection = getCompChoice();
+        playRound(playerSelection, compSelection)
+        
+        let result = playRound(playerSelection, compSelection);
+        console.log(result);
+    });
+    
+    
+})
+
+
 
