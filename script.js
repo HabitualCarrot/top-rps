@@ -75,7 +75,9 @@ function playRound(playerSelection, compSelection){
 
 const btns = document.querySelectorAll('button');
 const div = document.createElement('div');
-
+const body = document.querySelector('body');
+body.appendChild(div);
+const results = document.querySelector('div')
 // const button1 = document.querySelector('#btn1');
 // const button2 = document.querySelector('#btn2');
 // const button3 = document.querySelector('#btn3');
@@ -90,11 +92,28 @@ btns.forEach((button) => {
         playRound(playerSelection, compSelection)
         
         let result = playRound(playerSelection, compSelection);
-        console.log(result);
+        let score = `The final is score is You: ${playerScore}. Computer: ${compScore}` 
+        
+        if (result.includes('win')) {
+            playerScore++
+        }
+        else if (result.includes('lose')) {
+            compScore++
+        }
+
+        results.textContent = `${result}!` + ` You: ${playerScore}` + ` Computer: ${compScore}`; 
+
+        if (compScore === 5) {
+            alert(`The Computer wins! ${score}`)
+        }
+        if (playerScore === 5) {
+            alert(`You win! + ${score}`)
+        }
     });
-    
-    
+
+       
 })
+
 
 
 
